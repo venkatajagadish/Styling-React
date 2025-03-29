@@ -28,6 +28,28 @@ const Input = styled.input`
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 `;
 
+const Button = styled.button`
+  padding: 1rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  color: #f0920e;
+  background-color: #f0b322;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: none;
+  line-height: inherit;
+
+  &:hover {
+    background-color: ${({ $textButoon }) => (!$textButoon ? "#f0920e" : "")};
+    color: ${({ $textButoon }) => ($textButoon ? "#f0b322" : "#1f2937")};
+  }
+  &:focus {
+    outline: none;
+  }
+`;
+
 export default function AuthInputs() {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
@@ -71,12 +93,10 @@ export default function AuthInputs() {
         </p>
       </ControlDiv>
       <div className="actions">
-        <button type="button" className="text-button">
-          Create a new account
-        </button>
-        <button className="button" onClick={handleLogin}>
+        <Button $textButoon={true}>Create a new account</Button>
+        <Button $textButoon={false} onClick={handleLogin}>
           Sign In
-        </button>
+        </Button>
       </div>
     </div>
   );
