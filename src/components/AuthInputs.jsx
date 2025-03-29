@@ -39,10 +39,7 @@ export default function AuthInputs() {
           </label>
           <input
             type="password"
-            style={{
-              backgroundColor: passwordNotValid ? "#fed2d2" : "#d1d5db",
-            }}
-            //className={passwordNotValid ? "invalid" : undefined}
+            className={passwordNotValid ? "invalid" : undefined}
             onChange={(event) =>
               handleInputChange("password", event.target.value)
             }
